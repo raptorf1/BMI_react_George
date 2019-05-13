@@ -33,8 +33,8 @@ describe('BMI Converter', () => {
       })
   })
 
-  describe('Imperial method', async () => {
-      beforeEach( async () => {
+  describe('Imperial method', () => {
+      beforeEach( () => {
           // This before block will be executed prior to each test in this describe block
           cy.get('select[id="method"]').select('imperial')
           cy.get('input[name="weight"]').type('200')
