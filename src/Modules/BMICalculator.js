@@ -1,19 +1,40 @@
 export const bmiCalculation = (weight, height, method) => {
-  parseFloat(weight);
-  parseFloat(height);
-  let bmi;
+  if (method === "metric") {
 
-  weight = isNaN(weight) ? 0 : weight;
-  height = isNaN(height) ? 0 : height;
+    parseFloat(weight);
+    parseFloat(height);
+    let bmi;
 
-  bmi = weight / (height / 100 * height / 100);
+    weight = isNaN(weight) ? 0 : weight;
+    height = isNaN(height) ? 0 : height;
 
-  let finalBMI = parseFloat(bmi.toFixed(2));
-  let BMIMessage = setBMIMessage(finalBMI);
-  if (isNaN(finalBMI) || !isFinite(finalBMI) || finalBMI === 0 || finalBMI < 0 || weight <= 0 || height <= 0) {
-    return "Please fill in valid numbers";
-  } else {
-    return `You are ${BMIMessage} with a BMI of ${finalBMI}`;
+    bmi = weight / (height / 100 * height / 100);
+
+    let finalBMI = parseFloat(bmi.toFixed(2));
+    let BMIMessage = setBMIMessage(finalBMI);
+    if (isNaN(finalBMI) || !isFinite(finalBMI) || finalBMI === 0 || finalBMI < 0 || weight <= 0 || height <= 0) {
+      return "Please fill in valid numbers";
+    } else {
+      return `You are ${BMIMessage} with a BMI of ${finalBMI}`;
+    }
+  }
+
+  if (method === "imperial") {
+    parseFloat(weight);
+    parseFloat(height);
+    let bmi;
+
+    weight = isNaN(weight) ? 0 : weight;
+    height = isNaN(height) ? 0 : height;
+    bmi = weight / (height * height) * 703;
+
+    let finalBMI = parseFloat(bmi.toFixed(2));
+    let BMIMessage = setBMIMessage(finalBMI);
+    if (isNaN(finalBMI) || !isFinite(finalBMI) || finalBMI === 0 || finalBMI < 0 || weight <= 0 || height <= 0) {
+      return "Please fill in valid numbers";
+    } else {
+      return `You are ${BMIMessage} with a BMI of ${finalBMI}`;
+    }
   }
 }
 

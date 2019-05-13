@@ -6,7 +6,8 @@ class App extends Component {
     super(props);
     this.state = {
       weight: "",
-      height: ""
+      height: "",
+      method: "metric"
     }
   }
   render () {
@@ -14,24 +15,25 @@ class App extends Component {
       <div>
         <h1>BMI Calculator</h1>
 
-        <select id="method">
-          <option value="metric">Metric</option>
-          <option value="imperial">Imperial</option>
+        <select id="method" value={this.state.method} onChange={ (e) => this.setState({ method: e.target.value })}>
+          <option value="metric">METRIC (Weight in kg / Height in cm)</option>
+          <option value="imperial">IMPERIAL (Weight in pounds / Height in inches)</option>
         </select>
         
         <div>
-          <label>Weight(kg)</label>
+          <label>Weight</label>
           <input name="weight" value={this.state.weight} onChange={ (e) => this.setState({ weight: e.target.value })} />
         </div>
 
         <div>
-          <label>Height(cm)</label>
+          <label>Height</label>
           <input name="height" value={this.state.height} onChange={ (e) => this.setState({ height: e.target.value })} />
         </div>
 
         <DisplayResult
           weight={this.state.weight}
           height={this.state.height}
+          method={this.state.method}
         />
 
       </div>
