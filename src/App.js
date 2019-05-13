@@ -12,6 +12,12 @@ class App extends Component {
   render () {
     return (
       <div>
+        <h1>BMI Calculator</h1>
+
+        <select id="method">
+          <option value="metric">Metric</option>
+          <option value="imperial">Imperial</option>
+        </select>
         
         <div>
           <label>Weight(kg)</label>

@@ -8,9 +8,13 @@ describe('BMI Converter', () => {
       cy.reload();
   });
 
-  it('should display "BMI Converter" text on page', () => {
-      cy.contains('BMI Converter');
+  it('should display "BMI Calculator" text on page', () => {
+      cy.contains('BMI Calculator');
   });
+
+  it('should display "Please fill in valid numbers" text on page', () => {
+    cy.contains('Please fill in valid numbers');
+});
 
   describe('Metric method', () => {
       beforeEach(() => {
