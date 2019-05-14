@@ -1,8 +1,15 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { mount, shallow } from 'enzyme';
 import App from '../App';
 
 describe('<App />', () => {
+  it('renders without crashing', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(<App />, div);
+    ReactDOM.unmountComponentAtNode(div);
+  });
+
   it('renders header', () => {
     const component = shallow(<App />);
     const header = <h1>BMI Calculator</h1>;
